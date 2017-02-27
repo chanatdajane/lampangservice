@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Tripnorthern - @yield('title')</title>
+	<title>Lampang1stop - @yield('title')</title>
 
 	<link href="{{ asset('/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
@@ -108,7 +108,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span>BackEnd</span> Tripnorthern</a>
+				<a class="navbar-brand" href="#"><span>BackEnd</span> Lampang1stop</a>
 				<ul class="user-menu">
 					@if (Auth::guest())
 						<!-- <li><a href="{{ url('/auth/login') }}">Login</a></li>
@@ -138,40 +138,12 @@
 			$link = $_SERVER["REQUEST_URI"];
 		    $link_array = explode('/',$link);
 		    $page = end($link_array);
+		    // print_r($menu);
 		?>
 		<ul class="nav menu">
-			<!-- <li class="<?php if($page=='dashboard') echo 'active'; ?>"><a href="{{ url('/dashboard') }}"><svg class="glyph stroked dashboard-dial"></svg>Dashboard</a></li> -->
-			<li class="<?php if($page=='place') echo 'active'; ?>"><a href="{{ url('/place') }}"><svg class="glyph stroked calendar"></svg>EXPLORE</a></li>
-			<li class="<?php if($page=='route') echo 'active'; ?>"><a href="{{ url('/route') }}"><svg class="glyph stroked calendar"></svg>ROUTE</a></li>
-			<li class="<?php if($page=='event') echo 'active'; ?>"><a href="{{ url('/event') }}"><svg class="glyph stroked calendar"></svg>EVENT</a></li>
-			<!-- <li class="<?php if($page=='smart') echo 'active'; ?>"><a href="{{ url('/smart') }}"><svg class="glyph stroked table"></svg>Smart Signage</a></li>
-			<li class="<?php if($page=='knowledge') echo 'active'; ?>"><a href="{{ url('/knowledge') }}"><svg class="glyph stroked calendar"></svg>องค์ความรู้</a></li>
-			<li class="<?php if($page=='userreview') echo 'active'; ?>"><a href="{{ url('/userreview') }}"><svg class="glyph stroked calendar"></svg>รีวิวผู้ใช้</a></li> -->
-			<li class="<?php if($page=='category') echo 'active'; ?>"><a href="{{ url('/category') }}"><svg class="glyph stroked line-graph"></svg>CATEGORY</a></li>
-			<li class="<?php if($page=='user') echo 'active'; ?>"><a href="{{ url('/user') }}"><svg class="glyph stroked table"></svg>USER</a></li>
-			
-			<!-- <li class="parent ">
-				<a href="#">
-					<span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"></svg></span> Dropdown 
-				</a>
-				<ul class="children collapse" id="sub-item-1">
-					<li>
-						<a class="" href="#">
-							<svg class="glyph stroked chevron-right"></svg> Sub Item 1
-						</a>
-					</li>
-					<li>
-						<a class="" href="#">
-							<svg class="glyph stroked chevron-right"></svg> Sub Item 2
-						</a>
-					</li>
-					<li>
-						<a class="" href="#">
-							<svg class="glyph stroked chevron-right"></svg> Sub Item 3
-						</a>
-					</li>
-				</ul>
-			</li> -->
+			<?php foreach($menu as $key => $value){ ?>
+				<li class="<?php if($page==$value['route']) echo 'active'; ?>"><a href="<?php echo "".$value['route'] ?>"><svg class="glyph stroked calendar"></svg><?php echo $value['name'] ?></a></li>
+			<?php } ?>
 			<li role="presentation" class="divider"></li>
 			<li><a href="{{ url('/auth/logout') }}"><svg class="glyph stroked male-user"></svg> Logout</a></li>
 		</ul>

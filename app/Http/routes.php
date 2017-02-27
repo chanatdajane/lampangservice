@@ -12,6 +12,20 @@
 */
 Route::get('/', 'PlaceController@index');
 
+Route::get('/organization', 'OrganizationController@index');
+Route::post('/organization/save', 'OrganizationController@save');
+Route::post('/organization/getorganization', 'OrganizationController@getorganization');
+Route::get('/organization/delete/{id}', 'OrganizationController@delete');
+
+Route::get('/request', 'PlaceController@index');
+Route::get('/place/add', 'PlaceController@manage');
+Route::get('/place/edit/{id}', 'PlaceController@manage');
+Route::post('/place/save', 'PlaceController@save');
+Route::get('/place/delete/{id}', 'PlaceController@delete');
+Route::post('/place/getAmphur', 'PlaceController@getAmphur');
+Route::post('/place/deleteimg', 'PlaceController@deleteimg');
+Route::post('/place/galleryupload', 'PlaceController@galleryupload');
+
 Route::get('/home', 'UserController@index');
 Route::get('/dashboard', 'HomeController@index');
 
