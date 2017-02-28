@@ -58,7 +58,9 @@ class RequestsController extends Controller {
 		
 		if(!empty($id)){
 			$requests = Requests::where('id',$id)->get();
-			
+			$requests_choice = RequestsChoice::where('requestID',$id)->get();
+			$requests['requests_choice'] = $requests_choice;
+
 			return view('requests/edit', ['requests' => $requests,'organization' => $organization]);
 		}else{
 			return view('requests/add',['organization' => $organization]);

@@ -1,6 +1,6 @@
 @extends('app')
-@section('title', 'ฟอร์มคำร้อง')
-@section('topic', 'ฟอร์มคำร้อง')
+@section('title', 'แบบฟอร์มคำร้อง')
+@section('topic', 'แบบฟอร์มคำร้อง')
 @section('content')
 
 				<form role="search">

@@ -142,7 +142,7 @@
 		?>
 		<ul class="nav menu">
 			<?php foreach($menu as $key => $value){ ?>
-				<li class="<?php if($page==$value['route']) echo 'active'; ?>"><a href="<?php echo "../".$value['route'] ?>"><svg class="glyph stroked calendar"></svg><?php echo $value['name'] ?></a></li>
+				<li class="<?php if($page==$value['route']) echo 'active'; ?>"><a href="<?php echo "/".$value['route'] ?>"><svg class="glyph stroked calendar"></svg><?php echo $value['name'] ?></a></li>
 			<?php } ?>
 			<li role="presentation" class="divider"></li>
 			<li><a href="{{ url('/auth/logout') }}"><svg class="glyph stroked male-user"></svg> Logout</a></li>

@@ -5,7 +5,7 @@
 @section('content')
 {!! Form::open(array('url' => 'requests/save','files'=>true)) !!}
 		<div class="form-group">
-		  	<label class="topic-head" for="name">ชื่อสถานที่</label>
+		  	<label class="topic-head" for="name">ชื่อฟอร์มคำร้อง</label>
 		  	<input class="form-control" type="text" requestholder="ชื่อคำร้อง" id="name" name="name" required>
 		</div>
 
@@ -56,7 +56,7 @@
 		<div style="clear:both"><br>
 		<!-- <button class="submitrequest btn btn-primary">เพิ่มสถานที่</button> -->
 		{!! Form::submit('Send', ['class' => 'btn btn-large btn-primary'])!!}
-		<a href="{{ url('/request') }}" class="btn btn-danger">Cancel</a>
+		<a href="{{ url('/requests') }}" class="btn btn-danger">Cancel</a>
 {!! Form::close() !!}
 
 <script type="text/javascript">
