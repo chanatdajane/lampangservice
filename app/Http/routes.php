@@ -17,14 +17,11 @@ Route::post('/organization/save', 'OrganizationController@save');
 Route::post('/organization/getorganization', 'OrganizationController@getorganization');
 Route::get('/organization/delete/{id}', 'OrganizationController@delete');
 
-Route::get('/request', 'PlaceController@index');
-Route::get('/place/add', 'PlaceController@manage');
-Route::get('/place/edit/{id}', 'PlaceController@manage');
-Route::post('/place/save', 'PlaceController@save');
-Route::get('/place/delete/{id}', 'PlaceController@delete');
-Route::post('/place/getAmphur', 'PlaceController@getAmphur');
-Route::post('/place/deleteimg', 'PlaceController@deleteimg');
-Route::post('/place/galleryupload', 'PlaceController@galleryupload');
+Route::get('/requests', 'RequestsController@index');
+Route::get('/requests/add', 'RequestsController@manage');
+Route::get('/requests/edit/{id}', 'RequestsController@manage');
+Route::post('/requests/save', 'RequestsController@save');
+Route::get('/requests/delete/{id}', 'RequestsController@delete');
 
 Route::get('/home', 'UserController@index');
 Route::get('/dashboard', 'HomeController@index');
