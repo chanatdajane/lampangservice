@@ -19,7 +19,7 @@
 			  	<label class="col-xs-1 col-form-label" for="request_choice"></label>
 			  	<div class="col-xs-7">
 			  		<label for="name">ชื่อเอกสาร</label>
-					<input class="form-control" type="text" name="choice_name[]">
+					<input class="form-control" type="text" name="choice_name[0]">
 				</div>
 				<div class="col-xs-2">
 					<label for="name">จำเป็น</label>
@@ -62,7 +62,7 @@
 <script type="text/javascript">
 	var i = 1;
     $('.addmorerequest_choice').click(function(){
-    	$('.request_choice').append('<div class="request_choice_part"><label class="col-xs-1 col-form-label" for="request_choice"><span class="glyphicon glyphicon-minus removerequest_choice" aria-hidden="true" style="padding-right: 10px;"></span></label><div class="col-xs-7"><input class="form-control" type="text" name="choice_name[]"></div><div class="col-xs-2"><input class="form-control" type="radio" name="choice_required['+i+']" value="1" checked></div><div class="col-xs-2"><input class="form-control" type="radio" name="choice_required['+i+']" value="0"></div></div><br><br>');
+    	$('.request_choice').append('<div class="request_choice_part"><label class="col-xs-1 col-form-label" for="request_choice"><span class="glyphicon glyphicon-minus removerequest_choice" aria-hidden="true" style="padding-right: 10px;"></span></label><div class="col-xs-7"><input class="form-control" type="text" name="choice_name['+i+']"></div><div class="col-xs-2"><input class="form-control" type="radio" name="choice_required['+i+']" value="1" checked></div><div class="col-xs-2"><input class="form-control" type="radio" name="choice_required['+i+']" value="0"></div></div><br><br>');
     	$('.removerequest_choice').click(function(){
 	    	$(this).parent().parent().remove();
 	    });

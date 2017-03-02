@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Lampang1stop - @yield('title')</title>
+	<title>Lampang one stop service - @yield('title')</title>
 
 	<link href="{{ asset('/css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
@@ -108,7 +108,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span>BackEnd</span> Lampang1stop</a>
+				<a class="navbar-brand" href="#"><span>BackEnd</span> Lampang one stop service</a>
 				<ul class="user-menu">
 					@if (Auth::guest())
 						<!-- <li><a href="{{ url('/auth/login') }}">Login</a></li>
@@ -138,11 +138,14 @@
 			$link = $_SERVER["REQUEST_URI"];
 		    $link_array = explode('/',$link);
 		    $page = end($link_array);
-		    // print_r($menu);
+		    // print_r();
 		?>
 		<ul class="nav menu">
 			<?php foreach($menu as $key => $value){ ?>
-				<li class="<?php if($page==$value['route']) echo 'active'; ?>"><a href="<?php echo "/".$value['route'] ?>"><svg class="glyph stroked calendar"></svg><?php echo $value['name'] ?></a></li>
+				<?php $urllink = $value['route'];
+				
+				?>
+				<li class="<?php if($page==$value['route']) echo 'active'; ?>"><a href="<?php echo URL::to('/')."/".$value['route']; ?>"><svg class="glyph stroked calendar"></svg><?php echo $value['name'] ?></a></li>
 			<?php } ?>
 			<li role="presentation" class="divider"></li>
 			<li><a href="{{ url('/auth/logout') }}"><svg class="glyph stroked male-user"></svg> Logout</a></li>

@@ -20,30 +20,31 @@
 			  	<label class="col-xs-1 col-form-label" for="request_choice"></label>
 			  	<div class="col-xs-7">
 			  		<label for="name">ชื่อเอกสาร</label>
-					<input class="form-control" type="text" name="choice_name[]">
+					<!-- <input class="form-control" type="text" name="choice_name[]"> -->
 				</div>
 				<div class="col-xs-2">
 					<label for="name">จำเป็น</label>
-					<input class="form-control" type="radio" name="choice_required[0]" value="1" checked>
+					<!-- <input class="form-control" type="radio" name="choice_required[0]" value="1" checked> -->
 				</div>
 				<div class="col-xs-2">
 					<label for="name">ไม่จำเป็น</label>
-					<input class="form-control" type="radio" name="choice_required[0]" value="0">
+					<!-- <input class="form-control" type="radio" name="choice_required[0]" value="0"> -->
 				</div>
-			</div><br><br>
+			</div>
 			<?php foreach($requests['requests_choice'] as $key=>$value){ ?>
 				<div class="request_choice_part">
 			  	<br>
-				  	<label class="col-xs-1 col-form-label" for="request_choice"></label>
+				  	<label class="col-xs-1 col-form-label" for="request_choice"><span class="glyphicon glyphicon-minus removerequest_choice" aria-hidden="true" style="padding-right: 10px;"></span></label>
 				  	<div class="col-xs-7">
-						<input class="form-control" type="text" name="choice_name[]">
+						<input class="form-control" type="text" name="choice_name[<?php echo $key; ?>]" value="<?php echo $value['name'] ?>">
 					</div>
 					<div class="col-xs-2">
-						<input class="form-control" type="radio" name="choice_required[0]" value="1" checked>
+						<input class="form-control" type="radio" name="choice_required[<?php echo $key; ?>]" value="1" <?php if($value['required'] == 1) echo "checked"; ?>>
 					</div>
 					<div class="col-xs-2">
-						<input class="form-control" type="radio" name="choice_required[0]" value="0">
+						<input class="form-control" type="radio" name="choice_required[<?php echo $key; ?>]" value="0" <?php if($value['required'] == 0) echo "checked"; ?>>
 					</div>
+					
 				</div><br><br>
 			<?php } ?>
 		</div>
@@ -72,14 +73,14 @@
 		<div style="clear:both"><br>
 
 		{!! Form::submit('Update', ['class' => 'btn btn-large btn-primary'])!!}
-		<a href="{{ url('/request') }}" class="btn btn-danger">Cancel</a>
+		<a href="{{ url('/requests') }}" class="btn btn-danger">Cancel</a>
 
 {!! Form::close() !!}
 
 <script type="text/javascript">
-	var i = 1;
+	var i = <?php echo count($requests['requests_choice']); ?>;
     $('.addmorerequest_choice').click(function(){
-    	$('.request_choice').append('<div class="request_choice_part"><label class="col-xs-1 col-form-label" for="request_choice"><span class="glyphicon glyphicon-minus removerequest_choice" aria-hidden="true" style="padding-right: 10px;"></span></label><div class="col-xs-7"><input class="form-control" type="text" name="choice_name[]"></div><div class="col-xs-2"><input class="form-control" type="radio" name="choice_required['+i+']" value="1" checked></div><div class="col-xs-2"><input class="form-control" type="radio" name="choice_required['+i+']" value="0"></div></div><br><br>');
+    	$('.request_choice').append('<div class="request_choice_part"><label class="col-xs-1 col-form-label" for="request_choice"><span class="glyphicon glyphicon-minus removerequest_choice" aria-hidden="true" style="padding-right: 10px;"></span></label><div class="col-xs-7"><input class="form-control" type="text" name="choice_name['+i+']"></div><div class="col-xs-2"><input class="form-control" type="radio" name="choice_required['+i+']" value="1" checked></div><div class="col-xs-2"><input class="form-control" type="radio" name="choice_required['+i+']" value="0"></div></div><br><br>');
     	$('.removerequest_choice').click(function(){
 	    	$(this).parent().parent().remove();
 	    });

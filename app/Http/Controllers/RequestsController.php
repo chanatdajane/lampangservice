@@ -75,7 +75,7 @@ class RequestsController extends Controller {
 
 	public function save(){
 		$data = Request::all();
-		print_r($data);
+		// print_r($data);
 		if(!empty($data['ID'])){
 			$requests = Requests::find($data['ID']);
 		}else{
@@ -92,6 +92,7 @@ class RequestsController extends Controller {
 		//cover,recommend
 		if(!empty($data['ID'])){
 			$requests::where('ID', $data['ID'])->update($requests['attributes']);
+			RequestsChoice::where('requestID', $data['ID'])->delete();
 			$requestsid = $data['ID'];
 		}else{
 			$requests->save();
@@ -113,7 +114,7 @@ class RequestsController extends Controller {
 
 	public function delete($id){
 		Requests::where('ID', $id)->delete();
-		RequestsCategory::where('requestsID', $id)->delete();
+		RequestsChoice::where('requestID', $id)->delete();
 
 		return redirect('requests')->with('message', 'ลบสถานที่เรียบร้อย');
 	}
